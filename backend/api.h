@@ -1,5 +1,5 @@
-#ifndef PATHFORGE_API_H
-#define PATHFORGE_API_H
+#ifndef LEARNVERSE_API_H
+#define LEARNVERSE_API_H
 
 #include "models.h"
 
@@ -12,4 +12,4 @@ typedef struct ApiResponse {
 ApiResponse api_handle_request(AppState *state, const char *data_dir, const char *method, const char *path, const char *query, const char *body);
 void api_response_free(ApiResponse *resp);
 
-#endif // PATHFORGE_API_H
+#endif // LEARNVERSE_API_H

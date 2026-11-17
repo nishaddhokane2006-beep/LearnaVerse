@@ -18,7 +18,7 @@ static void sb_init(StrBuf *sb) {
     sb->data = (char *)malloc(sb->cap);
     if (sb->data) sb->data[0] = '\0';
 }
-
+ 
 static void sb_append(StrBuf *sb, const char *str) {
     if (!str || !sb->data) return;
     size_t slen = strlen(str);

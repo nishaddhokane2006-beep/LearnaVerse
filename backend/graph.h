@@ -1,5 +1,5 @@
-#ifndef PATHFORGE_GRAPH_H
-#define PATHFORGE_GRAPH_H
+#ifndef LEARNVERSE_GRAPH_H
+#define LEARNVERSE_GRAPH_H
 
 #include "linked_list.h"
 #include "queue.h"
@@ -69,4 +69,4 @@ size_t graph_propagate_concept(const Graph *g, const char *completed_topic_id, T
 
 void graph_free(Graph *g);
 
-#endif // PATHFORGE_GRAPH_H
+#endif // LEARNVERSE_GRAPH_H

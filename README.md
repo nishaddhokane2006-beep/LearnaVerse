@@ -1,17 +1,17 @@
-# PathForge: Visual Learning Roadmaps with C DSA Engine
+# LearnVerse: Visual Learning Roadmaps with C DSA Engine
 
 > **Interactive developer roadmap and prerequisite graph platform, powered by a pure C backend HTTP server implementing foundational Data Structures and Algorithms from scratch.**
 
-Inspired by [roadmap.sh](https://roadmap.sh), PathForge bridges modern web developer tooling with foundational computer science engineering. Every prerequisite path, topic recommendation, and graph traversal runs through real C data structures (`LinkedList`, `Stack`, `FIFO Queue`, `Separate-Chaining HashMap`, `Directed Graph`).
+Inspired by [roadmap.sh](https://roadmap.sh), LearnVerse bridges modern web developer tooling with foundational computer science engineering. Every prerequisite path, topic recommendation, and graph traversal runs through real C data structures (`LinkedList`, `Stack`, `FIFO Queue`, `Separate-Chaining HashMap`, `Directed Graph`).
 
 ---
 
 ## Architectural Overview
 
-PathForge is organized into a clean decoupled architecture:
+LearnVerse is organized into a clean decoupled architecture:
 
 ```
-pathforge/
+learnverse/
 ├── data/                    # Plain text formatted content repository
 │   ├── roadmaps.dat         # 32 roadmaps (Languages, Professions, Sub-roadmaps)
 │   ├── topics.dat           # 237 curated topics with code & pitfalls
@@ -41,7 +41,7 @@ pathforge/
 
 ## 📊 Big-O Complexity Analysis
 
-| Data Structure / Algorithm | Operation / Case | Time Complexity | Space Complexity | Real Role in PathForge |
+| Data Structure / Algorithm | Operation / Case | Time Complexity | Space Complexity | Real Role in LearnVerse |
 | :--- | :--- | :--- | :--- | :--- |
 | **Singly-Linked List** | `push_front`, `push_back` | $\mathcal{O}(1)$ | $\mathcal{O}(1)$ | Edge adjacency list in Graph, bucket collision chain in Hash Table |
 | **Singly-Linked List** | `find`, `remove` | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ | Key matching within hash bucket chains |
@@ -87,7 +87,7 @@ Execute the automated test runner to verify all 5 DSA components:
 Output:
 ```
 ===========================================
-  PathForge Core C DSA Unit Test Suite
+  LearnVerse Core C DSA Unit Test Suite
 ===========================================
 [*] Testing Linked List...
 [+] Linked List tests passed!

@@ -1,5 +1,5 @@
-#ifndef PATHFORGE_STACK_H
-#define PATHFORGE_STACK_H
+#ifndef LEARNVERSE_STACK_H
+#define LEARNVERSE_STACK_H
 
 #include <stddef.h>
 #include <stdbool.h>
@@ -35,4 +35,4 @@ bool stack_is_empty(const Stack *stack);
 size_t stack_size(const Stack *stack);
 void stack_free(Stack *stack, StackFreeFn free_fn);
 
-#endif // PATHFORGE_STACK_H
+#endif // LEARNVERSE_STACK_H

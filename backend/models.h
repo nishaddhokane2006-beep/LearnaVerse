@@ -1,5 +1,5 @@
-#ifndef PATHFORGE_MODELS_H
-#define PATHFORGE_MODELS_H
+#ifndef LEARNVERSE_MODELS_H
+#define LEARNVERSE_MODELS_H
 
 #include <stddef.h>
 #include <stdbool.h>
@@ -108,4 +108,4 @@ typedef struct RelatedTopicsResult {
 RelatedTopicsResult models_get_related_topics(AppState *state, const char *topic_id);
 void models_free_related_topics(RelatedTopicsResult *result);
 
-#endif // PATHFORGE_MODELS_H
+#endif // LEARNVERSE_MODELS_H

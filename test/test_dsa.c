@@ -174,7 +174,7 @@ static void test_graph_and_pathfinding(void) {
 
 int main(void) {
     printf("===========================================\n");
-    printf("  PathForge Core C DSA Unit Test Suite\n");
+    printf("  LearnVerse Core C DSA Unit Test Suite\n");
     printf("===========================================\n");
 
     test_linked_list();

@@ -11,6 +11,8 @@ data_og/
 # Binaries & compiled artifacts
 *.exe
 server
+test/test_dsa
+test_dsa
 *.o
 *.obj
 

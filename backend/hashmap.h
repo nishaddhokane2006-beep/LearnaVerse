@@ -1,5 +1,5 @@
-#ifndef PATHFORGE_HASHMAP_H
-#define PATHFORGE_HASHMAP_H
+#ifndef LEARNVERSE_HASHMAP_H
+#define LEARNVERSE_HASHMAP_H
 
 #include "linked_list.h"
 #include <stddef.h>
@@ -35,4 +35,4 @@ bool hashmap_has(const HashMap *map, const char *key);
 bool hashmap_remove(HashMap *map, const char *key, HashMapValueFreeFn free_fn);
 void hashmap_free(HashMap *map, HashMapValueFreeFn free_fn);
 
-#endif // PATHFORGE_HASHMAP_H
+#endif // LEARNVERSE_HASHMAP_H

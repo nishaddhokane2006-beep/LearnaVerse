@@ -7,7 +7,7 @@ difficulty: Beginner
 estimatedMinutes: 45
 summary: Understand the preprocessing, compilation, assembly, and linking phases in C, along with main() and standard headers.
 explanation: C is a statically-typed compiled language. Source files (.c) undergo four phases: Preprocessing (macro expansion, include file substitution via cpp), Compilation (syntactic and semantic translation to assembly via cc1), Assembly (converting assembly to machine object code .o via as), and Linking (resolving symbol tables and linking runtime libraries like libc via ld).
-codeExample: #include <stdio.h>\n\nint main(int argc, char *argv[]) {\n    printf("Hello, PathForge! Arguments received: %d\n", argc);\n    return 0;\n}
+codeExample: #include <stdio.h>\n\nint main(int argc, char *argv[]) {\n    printf("Hello, LearnVerse! Arguments received: %d\n", argc);\n    return 0;\n}
 objective: Explain the four stages of GCC toolchain: Preprocessor, Compiler, Assembler, Linker
 objective: Write standard-compliant main() signatures with argc and argv
 objective: Use headers (#include <stdio.h>) and define macros
@@ -140,7 +140,7 @@ difficulty: Intermediate
 estimatedMinutes: 55
 summary: Standard I/O streams, binary and text file manipulation with fopen, fread, fwrite, fgets, and fclose.
 explanation: C abstracts file access through buffered file streams managed by the FILE handle. Operations differentiate between formatted text streams (fprintf, fscanf, fgets) and raw binary streams (fread, fwrite). Proper error checking with ferror() and stream flushing with fflush() are critical for data persistence.
-codeExample: #include <stdio.h>\n\nint main(void) {\n    FILE *fp = fopen("log.txt", "w+");\n    if (!fp) { perror("Failed to open file"); return 1; }\n    fprintf(fp, "PathForge C Runtime: OK\n");\n    rewind(fp);\n    char line[128];\n    if (fgets(line, sizeof(line), fp)) {\n        printf("Read: %s", line);\n    }\n    fclose(fp);\n    return 0;\n}
+codeExample: #include <stdio.h>\n\nint main(void) {\n    FILE *fp = fopen("log.txt", "w+");\n    if (!fp) { perror("Failed to open file"); return 1; }\n    fprintf(fp, "LearnVerse C Runtime: OK\n");\n    rewind(fp);\n    char line[128];\n    if (fgets(line, sizeof(line), fp)) {\n        printf("Read: %s", line);\n    }\n    fclose(fp);\n    return 0;\n}
 objective: Open, read, write, and close files with robust error handling
 objective: Stream formatted text and serialize binary records with fread/fwrite
 objective: Inspect EOF indicators and seek stream offsets with fseek/ftell
@@ -309,7 +309,7 @@ difficulty: Beginner
 estimatedMinutes: 35
 summary: Indentation-based syntax, interactive REPL, comments, docstrings, and Python execution model.
 explanation: Python is an interpreted, high-level, dynamically typed language emphasizing human readability. Indentation defines statement blocks. Source code is compiled to bytecode (.pyc) and executed on the CPython virtual machine.
-codeExample: # PathForge Python Introduction\ndef greet(target: str) -> str:\n    """Return an enthusiastic welcome message."""\n    return f"Welcome to {target}!"\n\nif __name__ == '__main__':\n    print(greet("PathForge"))
+codeExample: # LearnVerse Python Introduction\ndef greet(target: str) -> str:\n    """Return an enthusiastic welcome message."""\n    return f"Welcome to {target}!"\n\nif __name__ == '__main__':\n    print(greet("LearnVerse"))
 objective: Structure programs using consistent whitespace indentation (PEP 8)
 objective: Execute scripts and experiment interactively in the REPL
 objective: Document modules and functions using structured docstrings
@@ -423,7 +423,7 @@ difficulty: Intermediate
 estimatedMinutes: 50
 summary: Reading and writing files with the with statement, encoding, and json encoding/decoding.
 explanation: The with statement defines a context manager ensuring file descriptors are automatically closed upon block exit, even when exceptions arise. Python's built-in json module seamlessly converts native dictionaries, lists, strings, and numbers into JSON strings and files.
-codeExample: import json\n\ndata = {"name": "PathForge", "version": 1.0, "active": True}\nwith open("config.json", "w", encoding="utf-8") as f:\n    json.dump(data, f, indent=2)\n\nwith open("config.json", "r", encoding="utf-8") as f:\n    loaded = json.load(f)\n    print("Loaded JSON:", loaded["name"])
+codeExample: import json\n\ndata = {"name": "LearnVerse", "version": 1.0, "active": True}\nwith open("config.json", "w", encoding="utf-8") as f:\n    json.dump(data, f, indent=2)\n\nwith open("config.json", "r", encoding="utf-8") as f:\n    loaded = json.load(f)\n    print("Loaded JSON:", loaded["name"])
 objective: Open and manipulate text files safely with context managers
 objective: Serialize and deserialize nested Python objects using json.dumps and json.loads
 objective: Handle file I/O exceptions (FileNotFoundError, PermissionError)
@@ -857,7 +857,7 @@ difficulty: Intermediate
 estimatedMinutes: 65
 summary: Cross-Origin Resource Sharing, XSS sanitization, CSRF tokens, SameSite cookies, and CSP headers.
 explanation: Web security defends against common application attack vectors. Cross-Origin Resource Sharing (CORS) enforces browser same-origin policies on cross-domain API calls. Cross-Site Scripting (XSS) is mitigated through strict output encoding and Content Security Policy (CSP). Cross-Site Request Forgery (CSRF) is defended via anti-CSRF tokens and SameSite=Strict cookies.
-codeExample: // Backend CORS & Security Headers\n// HTTP/1.1 200 OK\n// Access-Control-Allow-Origin: https://pathforge.dev\n// Content-Security-Policy: default-src 'self';\n// Set-Cookie: session=xyz; HttpOnly; Secure; SameSite=Strict\nconsole.log("Security headers active");
+codeExample: // Backend CORS & Security Headers\n// HTTP/1.1 200 OK\n// Access-Control-Allow-Origin: https://learnverse.dev\n// Content-Security-Policy: default-src 'self';\n// Set-Cookie: session=xyz; HttpOnly; Secure; SameSite=Strict\nconsole.log("Security headers active");
 objective: Configure backend CORS headers (Access-Control-Allow-Origin/Methods) securely
 objective: Sanitize untrusted user input to neutralize XSS injection vectors
 objective: Secure session cookies using HttpOnly, Secure, and SameSite flags
@@ -895,7 +895,7 @@ difficulty: Advanced
 estimatedMinutes: 80
 summary: Static asset distribution via CDNs, cloud virtual machines, HTTPS certificates, reverse proxying, and DNS.
 explanation: Modern web applications deploy static frontend bundles (HTML, CSS, JS) to global Content Delivery Networks (CDNs) for minimal edge latency, while backend APIs run on cloud compute instances or serverless containers. Reverse proxies coordinate domain routing, TLS encryption, and health checks.
-codeExample: # Nginx Reverse Proxy & Static Host Configuration\n# server {\n#   listen 80;\n#   server_name pathforge.dev;\n#   root /var/www/pathforge/frontend;\n#   location /api/ {\n#     proxy_pass http://127.0.0.1:8000;\n#   }\n# }
+codeExample: # Nginx Reverse Proxy & Static Host Configuration\n# server {\n#   listen 80;\n#   server_name learnverse.dev;\n#   root /var/www/learnverse/frontend;\n#   location /api/ {\n#     proxy_pass http://127.0.0.1:8000;\n#   }\n# }
 objective: Deploy static frontend bundles to edge CDN storage
 objective: Provision and configure Linux cloud servers with automated Nginx reverse proxies
 objective: Automate SSL certificate issuance and auto-renewal using Let's Encrypt / Certbot
@@ -915,7 +915,7 @@ difficulty: Beginner
 estimatedMinutes: 55
 summary: Work with contiguous arrays, character buffers, and explicit length tracking.
 explanation: C arrays store elements contiguously and do not carry their own length at runtime. String conventions use a terminating '\0' byte, so callers must track buffer capacity and validate indexes. Array parameters are adjusted to pointers, which means functions generally need an explicit length argument.
-codeExample: #include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char name[16] = "PathForge";\n    printf("%zu characters\n", strlen(name));\n    return 0;\n}
+codeExample: #include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char name[16] = "LearnVerse";\n    printf("%zu characters\n", strlen(name));\n    return 0;\n}
 objective: Declare and traverse arrays using valid index bounds
 objective: Distinguish a character array's capacity from its string length
 objective: Pass array data together with its length to functions
@@ -935,7 +935,7 @@ difficulty: Beginner to Intermediate
 estimatedMinutes: 50
 summary: Organize multi-file C programs with headers, declarations, macros, and compiler flags.
 explanation: The preprocessor handles include directives and macro expansion before compilation. Header files expose declarations while source files contain definitions. Include guards prevent repeated inclusion, and a repeatable build command should enable warnings so interface and type errors are found early.
-codeExample: #ifndef PATHFORGE_UTILS_H\n#define PATHFORGE_UTILS_H\nint clamp(int value, int low, int high);\n#endif
+codeExample: #ifndef LEARNVERSE_UTILS_H\n#define LEARNVERSE_UTILS_H\nint clamp(int value, int low, int high);\n#endif
 objective: Separate declarations from definitions across .h and .c files
 objective: Use include guards and macros carefully
 objective: Compile multiple translation units with useful warnings

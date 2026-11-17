@@ -1,5 +1,5 @@
-#ifndef PATHFORGE_QUEUE_H
-#define PATHFORGE_QUEUE_H
+#ifndef LEARNVERSE_QUEUE_H
+#define LEARNVERSE_QUEUE_H
 
 #include <stddef.h>
 #include <stdbool.h>
@@ -36,4 +36,4 @@ bool queue_is_empty(const Queue *queue);
 size_t queue_size(const Queue *queue);
 void queue_free(Queue *queue, QueueFreeFn free_fn);
 
-#endif // PATHFORGE_QUEUE_H
+#endif // LEARNVERSE_QUEUE_H

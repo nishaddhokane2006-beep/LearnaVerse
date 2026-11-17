@@ -1,5 +1,5 @@
-#ifndef PATHFORGE_LINKED_LIST_H
-#define PATHFORGE_LINKED_LIST_H
+#ifndef LEARNVERSE_LINKED_LIST_H
+#define LEARNVERSE_LINKED_LIST_H
 
 #include <stddef.h>
 #include <stdbool.h>
@@ -39,4 +39,4 @@ size_t list_size(const LinkedList *list);
 void list_clear(LinkedList *list, ListFreeFn free_fn);
 void list_free(LinkedList *list, ListFreeFn free_fn);
 
-#endif // PATHFORGE_LINKED_LIST_H
+#endif // LEARNVERSE_LINKED_LIST_H

@@ -1,5 +1,5 @@
 /**
- * PathForge Frontend Application Controller
+ * LearnVerse Frontend Application Controller
  * Minimal, clean client router, API synchronization, roadmap UI state manager,
  * and AI Onboarding Assessment.
  */
@@ -445,16 +445,16 @@
 
         <!-- Category Tabs -->
         <div class="discovery-category-tabs">
-          <button class="category-tab-btn ${filter === 'all' ? 'active' : ''}" onclick="PathForge.setDashboardFilter('all')">
+          <button class="category-tab-btn ${filter === 'all' ? 'active' : ''}" onclick="LearnVerse.setDashboardFilter('all')">
             All Tracks (${state.roadmaps.length})
           </button>
-          <button class="category-tab-btn ${filter === 'roles' ? 'active' : ''}" onclick="PathForge.setDashboardFilter('roles')">
+          <button class="category-tab-btn ${filter === 'roles' ? 'active' : ''}" onclick="LearnVerse.setDashboardFilter('roles')">
             Role-Based (${state.roadmaps.filter(r => r.type === 'profession').length})
           </button>
-          <button class="category-tab-btn ${filter === 'languages' ? 'active' : ''}" onclick="PathForge.setDashboardFilter('languages')">
+          <button class="category-tab-btn ${filter === 'languages' ? 'active' : ''}" onclick="LearnVerse.setDashboardFilter('languages')">
             Languages (${state.roadmaps.filter(r => r.type === 'language').length})
           </button>
-          <button class="category-tab-btn ${filter === 'skills' ? 'active' : ''}" onclick="PathForge.setDashboardFilter('skills')">
+          <button class="category-tab-btn ${filter === 'skills' ? 'active' : ''}" onclick="LearnVerse.setDashboardFilter('skills')">
             Skills & Deep Dives (${state.roadmaps.filter(r => r.type === 'subroadmap' || r.type === 'skill').length})
           </button>
         </div>
@@ -489,7 +489,7 @@
           </div>
           <div class="recommendations-grid">
             ${recommendations.slice(0, 4).map(t => `
-              <div class="rec-topic-card" onclick="PathForge.openTopicModal('${t.id}')">
+              <div class="rec-topic-card" onclick="LearnVerse.openTopicModal('${t.id}')">
                 <div>
                   <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
                     <span class="badge">${escapeHtml(t.roadmapId.toUpperCase())}</span>
@@ -525,7 +525,7 @@
             <div class="no-route-icon">🔍</div>
             <div class="no-route-title">No Roadmaps Match Your Query</div>
             <p class="no-route-desc">No tracks found matching "${escapeHtml(query)}". Try a different search term or reset filters.</p>
-            <button class="btn btn-outline btn-sm" style="margin-top:14px;" onclick="PathForge.resetDashboardSearch()">Reset Filters</button>
+            <button class="btn btn-outline btn-sm" style="margin-top:14px;" onclick="LearnVerse.resetDashboardSearch()">Reset Filters</button>
           </div>
         ` : `
           <div class="grid-careers">
@@ -620,7 +620,7 @@
         <div class="assessment-card" id="assess-loading" style="display:none; text-align:center; padding:40px 20px;">
           <div style="font-size:32px; margin-bottom:12px;">⚡</div>
           <h2 style="font-size:18px; font-weight:700; margin-bottom:8px;">Analyzing Your Profile with Gemini AI...</h2>
-          <p style="font-size:13px; color:var(--text-secondary);">Evaluating your background, schedule, and goals against PathForge catalog...</p>
+          <p style="font-size:13px; color:var(--text-secondary);">Evaluating your background, schedule, and goals against LearnVerse catalog...</p>
         </div>
 
         <!-- Assessment Result View -->
@@ -649,7 +649,7 @@
       optionsHtml = q.options.map(opt => {
         const selected = state.assessmentAnswers[q.id] === opt.value;
         return `
-          <div class="assessment-option-btn ${selected ? 'selected' : ''}" onclick="PathForge.selectAssessmentSingle('${q.id}', '${escapeHtml(opt.value)}')">
+          <div class="assessment-option-btn ${selected ? 'selected' : ''}" onclick="LearnVerse.selectAssessmentSingle('${q.id}', '${escapeHtml(opt.value)}')">
             <div>
               <div style="font-weight:600; font-size:13.5px;">${opt.icon ? opt.icon + ' ' : ''}${escapeHtml(opt.label)}</div>
               ${opt.subtext ? `<div style="font-size:11.5px; color:var(--text-secondary); margin-top:2px;">${escapeHtml(opt.subtext)}</div>` : ''}
@@ -663,7 +663,7 @@
       optionsHtml = q.options.map(opt => {
         const selected = selectedArr.includes(opt.value);
         return `
-          <div class="assessment-option-btn ${selected ? 'selected' : ''}" onclick="PathForge.toggleAssessmentMulti('${q.id}', '${escapeHtml(opt.value)}', ${q.max || 99})">
+          <div class="assessment-option-btn ${selected ? 'selected' : ''}" onclick="LearnVerse.toggleAssessmentMulti('${q.id}', '${escapeHtml(opt.value)}', ${q.max || 99})">
             <div style="font-weight:600; font-size:13.5px;">${escapeHtml(opt.label)}</div>
             <div class="option-check-box">${selected ? '✓' : ''}</div>
           </div>
@@ -680,8 +680,8 @@
       </div>
 
       <div class="assessment-nav-row">
-        <button class="btn btn-secondary btn-sm" ${state.assessmentStep === 0 ? 'disabled style="opacity:0.4;"' : ''} onclick="PathForge.prevAssessmentStep()">Back</button>
-        <button class="btn btn-primary btn-sm" onclick="PathForge.nextAssessmentStep()">
+        <button class="btn btn-secondary btn-sm" ${state.assessmentStep === 0 ? 'disabled style="opacity:0.4;"' : ''} onclick="LearnVerse.prevAssessmentStep()">Back</button>
+        <button class="btn btn-primary btn-sm" onclick="LearnVerse.nextAssessmentStep()">
           ${state.assessmentStep === ASSESSMENT_QUESTIONS.length - 1 ? 'Find My Roadmap' : 'Next'}
         </button>
       </div>
@@ -743,7 +743,7 @@
 
     const catalogList = availableRoadmaps.map(r => `- ${r.id}: ${r.title} (${r.type})`).join('\n');
 
-    const systemPrompt = `You are PathForge AI Roadmap Evaluator.
+    const systemPrompt = `You are LearnVerse AI Roadmap Evaluator.
 Given a user's onboarding assessment answers, determine the single best matching roadmap from our exact catalog:
 ${catalogList}
 
@@ -859,7 +859,7 @@ If no existing roadmap reasonably aligns with their target role, respond with JS
           <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.6; margin-bottom:20px; max-width:540px; margin-left:auto; margin-right:auto;">
             we dont have the roadmap you are looking for, we keep adding new roadmaps with every update, if you want this roadmap to be added please click the "request roadmap" button below
           </p>
-          <button class="btn btn-primary" onclick="PathForge.requestRoadmapBtnClicked()">Request Roadmap</button>
+          <button class="btn btn-primary" onclick="LearnVerse.requestRoadmapBtnClicked()">Request Roadmap</button>
         </div>
       `;
     } else {
@@ -985,11 +985,11 @@ If no existing roadmap reasonably aligns with their target role, respond with JS
 
               <!-- Flowchart vs Outline View Toggle -->
               <div class="view-toggle-btn-group">
-                <button class="view-toggle-btn ${viewMode === 'flowchart' ? 'active' : ''}" onclick="PathForge.setRoadmapViewMode('flowchart')">
+                <button class="view-toggle-btn ${viewMode === 'flowchart' ? 'active' : ''}" onclick="LearnVerse.setRoadmapViewMode('flowchart')">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
                   <span>Flowchart</span>
                 </button>
-                <button class="view-toggle-btn ${viewMode === 'outline' ? 'active' : ''}" onclick="PathForge.setRoadmapViewMode('outline')">
+                <button class="view-toggle-btn ${viewMode === 'outline' ? 'active' : ''}" onclick="LearnVerse.setRoadmapViewMode('outline')">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
                   <span>Outline</span>
                 </button>
@@ -999,14 +999,14 @@ If no existing roadmap reasonably aligns with their target role, respond with JS
             <!-- Zoom & Pan Controls (Flowchart mode) -->
             ${viewMode === 'flowchart' ? `
               <div class="toolbar-group">
-                <button class="btn btn-outline btn-xs" onclick="PathForge.zoomRoadmap(-0.15)" title="Zoom Out">
+                <button class="btn btn-outline btn-xs" onclick="LearnVerse.zoomRoadmap(-0.15)" title="Zoom Out">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
                 </button>
                 <span style="font-size:12px; font-weight:600; min-width:44px; text-align:center; color:var(--text-secondary);">${Math.round(zoom * 100)}%</span>
-                <button class="btn btn-outline btn-xs" onclick="PathForge.zoomRoadmap(0.15)" title="Zoom In">
+                <button class="btn btn-outline btn-xs" onclick="LearnVerse.zoomRoadmap(0.15)" title="Zoom In">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
                 </button>
-                <button class="btn btn-outline btn-xs" onclick="PathForge.resetRoadmapZoom()" title="Fit / Reset Zoom">
+                <button class="btn btn-outline btn-xs" onclick="LearnVerse.resetRoadmapZoom()" title="Fit / Reset Zoom">
                   Fit View
                 </button>
               </div>
@@ -1062,9 +1062,9 @@ If no existing roadmap reasonably aligns with their target role, respond with JS
 
             <!-- Floating Controls Dock -->
             <div class="flowchart-controls-dock">
-              <button class="dock-btn" onclick="PathForge.zoomRoadmap(0.15)" title="Zoom In">+</button>
-              <button class="dock-btn" onclick="PathForge.zoomRoadmap(-0.15)" title="Zoom Out">−</button>
-              <button class="dock-btn" onclick="PathForge.resetRoadmapZoom()" title="Reset Zoom">⤢</button>
+              <button class="dock-btn" onclick="LearnVerse.zoomRoadmap(0.15)" title="Zoom In">+</button>
+              <button class="dock-btn" onclick="LearnVerse.zoomRoadmap(-0.15)" title="Zoom Out">−</button>
+              <button class="dock-btn" onclick="LearnVerse.resetRoadmapZoom()" title="Reset Zoom">⤢</button>
             </div>
           </div>
         ` : `
@@ -1147,7 +1147,7 @@ If no existing roadmap reasonably aligns with their target role, respond with JS
         class="roadmap-node-box ${statusClass} ${isSubroadmap ? 'status-subroadmap' : ''} ${isSelected ? 'selected' : ''} ${searchMatch ? 'search-match' : ''} ${dimmed ? 'dimmed' : ''}"
         id="node-${t.id}"
         data-topic-id="${t.id}"
-        onclick="PathForge.openTopicDrawer('${t.id}')"
+        onclick="LearnVerse.openTopicDrawer('${t.id}')"
       >
         <div class="node-top-bar">
           <span class="node-status-indicator">
@@ -1181,7 +1181,7 @@ If no existing roadmap reasonably aligns with their target role, respond with JS
     }
 
     return `
-      <div class="outline-topic-row" onclick="PathForge.openTopicDrawer('${t.id}')">
+      <div class="outline-topic-row" onclick="LearnVerse.openTopicDrawer('${t.id}')">
         <div style="display:flex; align-items:center; gap:12px;">
           <span class="status-pill" data-status="${escapeHtml(status)}">${escapeHtml(status)}</span>
           <div>
@@ -1412,7 +1412,7 @@ If no existing roadmap reasonably aligns with their target role, respond with JS
             const title = pt ? pt.title : pid;
             const status = pt ? pt.status : 'Not Started';
             return `
-              <span class="badge" style="cursor:pointer; padding:5px 9px;" onclick="PathForge.openTopicDrawer('${pid}')">
+              <span class="badge" style="cursor:pointer; padding:5px 9px;" onclick="LearnVerse.openTopicDrawer('${pid}')">
                 ${escapeHtml(title)}
                 <span class="status-pill" data-status="${escapeHtml(status)}" style="font-size:9px; padding:1px 4px; margin-left:4px;">${escapeHtml(status)}</span>
               </span>
@@ -1434,7 +1434,7 @@ If no existing roadmap reasonably aligns with their target role, respond with JS
             const title = dt ? dt.title : did;
             const status = dt ? dt.status : 'Not Started';
             return `
-              <span class="badge" style="cursor:pointer; padding:5px 9px;" onclick="PathForge.openTopicDrawer('${did}')">
+              <span class="badge" style="cursor:pointer; padding:5px 9px;" onclick="LearnVerse.openTopicDrawer('${did}')">
                 ${escapeHtml(title)}
                 <span class="status-pill" data-status="${escapeHtml(status)}" style="font-size:9px; padding:1px 4px; margin-left:4px;">${escapeHtml(status)}</span>
               </span>
@@ -1490,9 +1490,9 @@ If no existing roadmap reasonably aligns with their target role, respond with JS
               return `
                 <div
                   class="related-topic-card"
-                  onclick="PathForge.openTopicDrawer('${r.topicId}')"
+                  onclick="LearnVerse.openTopicDrawer('${r.topicId}')"
                   tabindex="0"
-                  onkeydown="event.key==='Enter' && PathForge.openTopicDrawer('${r.topicId}')"
+                  onkeydown="event.key==='Enter' && LearnVerse.openTopicDrawer('${r.topicId}')"
                 >
                   <div style="display: flex; align-items: flex-start; gap: 12px;">
                     <div style="flex: 1;">
@@ -1723,7 +1723,7 @@ If no existing roadmap reasonably aligns with their target role, respond with JS
         const bulletSymbol = isStart ? '▶' : (isEnd ? '★' : `${idx + 1}`);
 
         return `
-          <div class="journey-step-node" onclick="PathForge.openTopicDrawer('${step.id}')">
+          <div class="journey-step-node" onclick="LearnVerse.openTopicDrawer('${step.id}')">
             <div class="journey-step-rail">
               <div class="journey-step-bullet ${isStart ? 'start-bullet' : (isEnd ? 'dest-bullet' : '')}">
                 ${bulletSymbol}
@@ -1836,7 +1836,7 @@ If no existing roadmap reasonably aligns with their target role, respond with JS
   }
 
   // --- Public Interface ---
-  window.PathForge = {
+  window.LearnVerse = window.PathForge = {
     openTopicModal: openTopicDrawer,
     openTopicDrawer,
     closeTopicDrawer,

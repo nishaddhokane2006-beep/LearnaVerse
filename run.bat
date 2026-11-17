@@ -1,6 +1,6 @@
 @echo off
 echo ====================================================
-echo   PathForge Native Windows Runner
+echo   LearnVerse Native Windows Runner
 echo ====================================================
 
 if not exist "server.exe" (
@@ -13,7 +13,7 @@ if not exist "server.exe" (
     )
 )
 
-echo [*] Launching PathForge HTTP Server on http://localhost:8001
+echo [*] Launching LearnVerse HTTP Server on http://localhost:8001
 echo [*] Press Ctrl+C to stop the server
 server.exe --port 8001 --data data --frontend frontend
 pause

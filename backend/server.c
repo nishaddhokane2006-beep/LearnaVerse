@@ -245,7 +245,7 @@ int main(int argc, char *argv[]) {
     }
 
     printf("====================================================\n");
-    printf("  PathForge C DSA HTTP Server (Cross-Platform)\n");
+    printf("  LearnVerse C DSA HTTP Server (Cross-Platform)\n");
     printf("====================================================\n");
     printf("[*] Loading Data Structures from '%s'...\n", data_dir);
 
@@ -314,7 +314,7 @@ int main(int argc, char *argv[]) {
 
     printf("[*] Starting HTTP server on http://0.0.0.0:%d...\n", port);
     printf("[*] Serving Web UI from '%s'...\n", frontend_dir);
-    printf("[+] PathForge Server is online!\n");
+    printf("[+] LearnVerse Server is online!\n");
     printf("    -> Frontend: http://localhost:%d\n", port);
     printf("    -> REST API: http://localhost:%d/api/roadmaps\n", port);
     printf("====================================================\n");
